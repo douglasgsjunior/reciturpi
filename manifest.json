@@ -1,0 +1,29 @@
+{
+  "name": "ReciTur",
+  "short_name": "ReciTur",
+  "description": "Para os fãs de Recife",
+  "icons": [
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "https://recitur.netlify.app/",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "theme_color": "#FFFFFF"
+}
