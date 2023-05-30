@@ -17,7 +17,7 @@ connection.on('connect', () => {
 });
 
 // Rota para buscar os dados no banco de dados
-app.get('https://reciturbackend.onrender.com/', (req, res) => {
+app.get('/', (req, res) => {
   connection.query('SELECT guide_name, guide_photo, guide_description, guide_location, guide_whatsapp_number FROM guide_tbl', (err, results) => {
     if (err) {
       console.error('Erro ao consultar o banco de dados:', err);
