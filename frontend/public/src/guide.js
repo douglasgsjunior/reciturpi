@@ -51,7 +51,7 @@ function createButton(point) {
 
 // Função para buscar os dados do backend e criar os botões na página
 function fetchDataAndCreateButtons() {
-  fetch('/dados')
+  fetch('/')
     .then(response => response.json())
     .then(data => {
       data.forEach(point => {

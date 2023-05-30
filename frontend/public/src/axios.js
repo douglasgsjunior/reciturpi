@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 axios.get('https://reciturbackend.onrender.com/')
   .then(response => {
     // Manipule os dados da resposta aqui
