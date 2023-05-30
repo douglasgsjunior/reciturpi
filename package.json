@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "npm install && npm run build && npm run migrate",
     "start": "node index.js"
   },
   "author": "",
