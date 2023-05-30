@@ -1,4 +1,4 @@
-const infoPage = document.getElementById("page3");
+const guideButtons = document.getElementById("guide-buttons");
 
 // Função para criar um botão com base nos dados retornados do banco de dados
 function createButton(point) {
