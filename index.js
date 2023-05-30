@@ -10,6 +10,11 @@ const connection = mysql.createConnection({
   database: 'br9ikcswbolcedzmeuqh'
 });
 
+// Evento 'connect' para exibir o aviso de conexão bem-sucedida
+connection.on('connect', () => {
+  console.log('Conectado ao banco de dados!');
+});
+
 // Rota para buscar os dados no banco de dados
 app.get('/dados', (req, res) => {
   connection.query('SELECT guide_name, guide_photo, guide_description, guide_location, guide_whatsapp_number FROM guide_tbl', (err, results) => {
