@@ -420,7 +420,7 @@
 }
 
 .left img {
-  width: 30%;
+  width: 35px;
 }
 
 .image-container {
@@ -432,7 +432,7 @@
   left: 0;
   flex-direction: row;
   display: flex;
-  margin: 13%;
+  margin: 14px;
 }
 
 .image-container img {
