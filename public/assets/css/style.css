@@ -545,8 +545,8 @@
   background-color: rgb(255, 255, 255);
 }
 
-#guide-info {
-  width: 100%; height: 100%;
+#page3-content {
+  width: 50vw; height: 100vh;
   color: black;
   background-color: rgb(255, 255, 255);
 }

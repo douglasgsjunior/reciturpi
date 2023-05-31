@@ -20,25 +20,24 @@
           });
       }
   
-      // Função para carregar os dados do backend e exibi-los na página
-      function loadData() {
-        fetch('https://reciturbackend.onrender.com/')
-          .then(response => response.json())
-          .then(data => {
-            // Manipule os dados recebidos aqui e insira-os na página
-            const page3 = document.getElementById('page3');
-            const content = document.createElement('div');
-            content.textContent = data.message; // Substitua 'message' pelo campo relevante dos seus dados
-  
-            page3.appendChild(content);
-          })
-          .catch(error => {
-            console.log('Erro ao carregar os dados:', error);
-          });
-      }
-  
-      // Chamada à função para carregar os dados quando a página for carregada
-      window.onload = loadData;
+      // Função para recuperar os dados do backend e atualizar a página
+    function fetchBackendData() {
+      fetch('https://reciturbackend.onrender.com/')
+        .then(response => response.json())
+        .then(data => {
+          // Atualize o conteúdo da "page3" com os dados recebidos do backend
+          const page3Content = document.getElementById('page3-content');
+          page3Content.innerHTML = JSON.stringify(data);
+        })
+        .catch(error => {
+          console.log('Erro ao recuperar os dados do backend:', error);
+        });
+    }
+
+    // Chamada da função fetchBackendData() quando a página é carregada
+    window.onload = function() {
+      fetchBackendData();
+    };
     </script>
   </head>
   <body>
@@ -117,7 +116,7 @@
         </div>
 			</div>
 			<div class="page" id="page3"><!--guide-->
-        <div id="guide-info"></div>
+        <div id="page3-content"></div>
 			</div>
 			<div class="page" id="page4"><!--settings-->
         <div id="header">
