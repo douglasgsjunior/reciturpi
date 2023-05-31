@@ -105,7 +105,85 @@
           <div id="null4"></div>
         </div>
         <div id="null3"></div>
-        <div id="guide-info"></div>
+        <div class="page3-point">
+          <div class="left">
+            <div class="image-container">
+              <img src="images/placeholder.png" alt="Imagem" />
+            </div>
+            <img src="images/whatsapp.png" alt="Imagem" onclick="redirecionarParaWhatsApp('5581984459234')" />
+          </div>
+          <div class="right">
+            <div class="name-container">Douglas Guedes</div>
+            <div class="info-container">Madalena, Recife - PE</div>
+            <div class="desc-container">Guia experiente</div>
+          </div>
+        </div>
+        <div class="page3-point">
+          <div class="left">
+            <div class="image-container">
+              <img src="images/placeholder.png" alt="Imagem" />
+            </div>
+            <img src="images/whatsapp.png" alt="Imagem" onclick="redirecionarParaWhatsApp('5581985573220')" />
+          </div>
+          <div class="right">
+            <div class="name-container">Mirelle Coutinho</div>
+            <div class="info-container">Boa Viagem, Recife - PE</div>
+            <div class="desc-container">Guia local certificada</div>
+          </div>
+        </div>
+        <div class="page3-point">
+          <div class="left">
+            <div class="image-container">
+              <img src="images/placeholder.png" alt="Imagem" />
+            </div>
+            <img src="images/whatsapp.png" alt="Imagem" onclick="redirecionarParaWhatsApp('5581985370425')" />
+          </div>
+          <div class="right">
+            <div class="name-container">Natália Gabriele</div>
+            <div class="info-container">Parnamirim, Recife - PE</div>
+            <div class="desc-container">Especialista em turismo de aventura</div>
+          </div>
+        </div>
+        <div class="page3-point">
+          <div class="left">
+            <div class="image-container">
+              <img src="images/placeholder.png" alt="Imagem" />
+            </div>
+            <img src="images/whatsapp.png" alt="Imagem" onclick="redirecionarParaWhatsApp('5581985573220')" />
+          </div>
+          <div class="right">
+            <div class="name-container">Jaqueline Lins</div>
+            <div class="info-container">Graças, Recife - PE</div>
+            <div class="desc-container">Expert em pontos turísticos históricos</div>
+          </div>
+        </div>
+        <div class="page3-point">
+          <div class="left">
+            <div class="image-container">
+              <img src="images/placeholder.png" alt="Imagem" />
+            </div>
+            <img src="images/whatsapp.png" alt="Imagem" onclick="redirecionarParaWhatsApp('5581991970837')" />
+          </div>
+          <div class="right">
+            <div class="name-container">Pedro Henrique</div>
+            <div class="info-container">Santo Amaro, Recife - PE</div>
+            <div class="desc-container">Guia de patrimônio cultural</div>
+          </div>
+        </div>
+        <div class="page3-point">
+          <div class="left">
+            <div class="image-container">
+              <img src="images/placeholder.png" alt="Imagem" />
+            </div>
+            <img src="images/whatsapp.png" alt="Imagem" onclick="redirecionarParaWhatsApp('5581988557891')" />
+          </div>
+          <div class="right">
+            <div class="name-container">Jullyana França</div>
+            <div class="info-container">Graças, Recife - PE</div>
+            <div class="desc-container">Expert em pontos turísticos históricos</div>
+          </div>
+        </div>
+    <!--<div id="guide-info"></div>-->
 			</div>
 			<div class="page" id="page4"><!--settings-->
         <div id="header">
@@ -122,13 +200,32 @@
             window.location.href = 'mailto:douglasgsjunior@fac.pe.senac.br';
           }
         </script>
+        
         <div id="empty2"></div>
-        <button id="emailsupport2" onclick="openEmail()">É guia e quer se cadastrar? Clique aqui!</button>
-        <script>
-          function openEmail() {
-            window.location.href = 'mailto:reciturparaguias@gmail.com';
-          }
-        </script>
+        
+        <div id="vazio">
+          <div id="pedidos">
+            <button id="emailsupport2" onclick="openEmail2()">É guia e quer se cadastrar? Clique aqui!</button>
+          <script>
+            function openEmail2() {
+              window.location.href = 'mailto:reciturparaguias@gmail.com';
+            }
+          </script>
+          <br></br>
+          <p>Mande para nosso email:</p>
+          <br></br>
+          <ul>
+            <li>Nome</li>
+            <li>E-mail</li>
+            <li>Foto (máx. 2 mega)</li>
+            <li>PDF do seu CPF</li>
+            <li>PDF do seu certificado Cadastur</li>
+            <li>Local aonde atua (ex.: Derby, Recife - PE)</li>
+            <li>Uma breve descrição sobre você</li>
+          </ul>
+          </div>
+        </div>
+        
 			</div>
     </div>
     <div id="navbar">
@@ -165,11 +262,18 @@
 				Opções
 			</button>
     </div>
+    <script>
+      function redirecionarParaWhatsApp(numero) {
+        var url = 'https://wa.me/' + numero;
+        window.location.href = url;
+      }
+    </script>
     <script src="public/assets/js/script.js"></script>
     <script src="public/assets/js/navbar.js"></script>
     <script src="public/assets/js/map.js"></script>
     <script src="public/assets/js/points.js"></script>
-    <script>
+    <script src="public/assets/js/guide.js"></script>
+<!--<script>
       // Script para fazer a solicitação HTTP ao backend e exibir os dados na página
 
       // Função para fazer a solicitação e manipular a resposta
@@ -188,6 +292,6 @@
 
       // Chame a função para buscar os dados quando a página for carregada
       document.addEventListener('DOMContentLoaded', fetchGuideInfo);
-    </script>
+    </script>-->
   </body>
 </html>
