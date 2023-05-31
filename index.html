@@ -10,33 +10,16 @@
 		<link rel="stylesheet" href="public/assets/css/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIjn7yc2qdAWYWozx6OpupHdsv0yDFDIs&libraries=places&callback=initMap"></script>
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(function(registration) {
-            console.log('Service Worker registrado com sucesso:', registration.scope);
-          })
-          .catch(function(error) {
-            console.log('Falha ao registrar o Service Worker:', error);
-          });
-      }
-  
-      // Função para recuperar os dados do backend e atualizar a página
-      function fetchBackendData() {
-        $.get('https://reciturbackend.onrender.com/', function(data) {
-          // Atualize o conteúdo da "page3" com os dados recebidos do backend
-          const page3Content = $('#page3-content');
-          page3Content.html(JSON.stringify(data));
-        })
-        .fail(function(error) {
-          console.log('Erro ao recuperar os dados do backend:', error);
-        });
-      }
-  
-      // Chamada da função fetchBackendData() quando a página é carregada
-      $(document).ready(function() {
-        fetchBackendData();
-      });
-    </script>
+			if ('serviceWorker' in navigator) {
+			  navigator.serviceWorker.register('/service-worker.js')
+				.then(function(registration) {
+				  console.log('Service Worker registrado com sucesso:', registration.scope);
+				})
+				.catch(function(error) {
+				  console.log('Falha ao registrar o Service Worker:', error);
+				});
+			}
+		</script>
   </head>
   <body>
     <div id="container">
@@ -114,7 +97,7 @@
         </div>
 			</div>
 			<div class="page" id="page3"><!--guide-->
-        <div id="page3-content"></div>
+        <div id="guide-info"></div>
 			</div>
 			<div class="page" id="page4"><!--settings-->
         <div id="header">
@@ -178,5 +161,6 @@
     <script src="public/assets/js/navbar.js"></script>
     <script src="public/assets/js/map.js"></script>
     <script src="public/assets/js/points.js"></script>
+    <script src="public/assets/js/guide.js"></script>
   </body>
 </html>
