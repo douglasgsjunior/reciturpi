@@ -20,6 +20,13 @@
 				});
 			}
 		</script>
+    <style>
+      .guide {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <div id="container">
@@ -170,22 +177,46 @@
     <script src="public/assets/js/map.js"></script>
     <script src="public/assets/js/points.js"></script>
     <script>
-      // Script para fazer a solicitação HTTP ao backend e exibir os dados na página
-
       // Função para fazer a solicitação e manipular a resposta
       function fetchGuideInfo() {
         fetch('https://reciturbackend.onrender.com/')
           .then(response => response.json())
           .then(data => {
-            // Manipule os dados recebidos aqui
-            const guideInfoElement = document.getElementById('guide-info');
-            guideInfoElement.innerHTML = JSON.stringify(data);
+            const guideInfo = document.getElementById('guide-info');
+  
+            // Iterar sobre os dados do guia e criar elementos para exibir as informações
+            data.forEach(guide => {
+              const guideElement = document.createElement('div');
+              guideElement.classList.add('guide');
+  
+              const nameElement = document.createElement('h3');
+              nameElement.textContent = guide.guide_name;
+              guideElement.appendChild(nameElement);
+  
+              const photoElement = document.createElement('img');
+              photoElement.src = guide.guide_photo;
+              guideElement.appendChild(photoElement);
+  
+              const descriptionElement = document.createElement('p');
+              descriptionElement.textContent = guide.guide_description;
+              guideElement.appendChild(descriptionElement);
+  
+              const locationElement = document.createElement('p');
+              locationElement.textContent = guide.guide_location;
+              guideElement.appendChild(locationElement);
+  
+              const whatsappElement = document.createElement('p');
+              whatsappElement.textContent = guide.guide_whatsapp_number;
+              guideElement.appendChild(whatsappElement);
+  
+              guideInfo.appendChild(guideElement);
+            });
           })
           .catch(error => {
-            console.error('Erro ao obter os dados:', error);
+            console.error('Erro ao buscar informações do guia:', error);
           });
       }
-
+  
       // Chame a função para buscar os dados quando a página for carregada
       document.addEventListener('DOMContentLoaded', fetchGuideInfo);
     </script>
