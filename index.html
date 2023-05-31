@@ -21,23 +21,21 @@
       }
   
       // Função para recuperar os dados do backend e atualizar a página
-    function fetchBackendData() {
-      fetch('https://reciturbackend.onrender.com/')
-        .then(response => response.json())
-        .then(data => {
+      function fetchBackendData() {
+        $.get('https://reciturbackend.onrender.com/', function(data) {
           // Atualize o conteúdo da "page3" com os dados recebidos do backend
-          const page3Content = document.getElementById('page3-content');
-          page3Content.innerHTML = JSON.stringify(data);
+          const page3Content = $('#page3-content');
+          page3Content.html(JSON.stringify(data));
         })
-        .catch(error => {
+        .fail(function(error) {
           console.log('Erro ao recuperar os dados do backend:', error);
         });
-    }
-
-    // Chamada da função fetchBackendData() quando a página é carregada
-    window.onload = function() {
-      fetchBackendData();
-    };
+      }
+  
+      // Chamada da função fetchBackendData() quando a página é carregada
+      $(document).ready(function() {
+        fetchBackendData();
+      });
     </script>
   </head>
   <body>
