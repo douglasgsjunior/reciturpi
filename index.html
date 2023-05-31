@@ -105,7 +105,7 @@
           <div id="null4"></div>
         </div>
         <div id="null3"></div>
-        <div class="guide-info-container"></div>
+        <div class="guide-info"></div>
       </div>      
 			<div class="page" id="page4"><!--settings-->
         <div id="header">
@@ -170,31 +170,24 @@
     <script src="public/assets/js/map.js"></script>
     <script src="public/assets/js/points.js"></script>
     <script>
-function fetchGuideInfo() {
-  fetch('https://reciturbackend.onrender.com/')
-    .then(response => response.json())
-    .then(data => {
-      const guideInfoContainer = document.querySelector('.guide-info-container');
+      // Script para fazer a solicitação HTTP ao backend e exibir os dados na página
 
-      data.forEach(guide => {
-        const guideInfoDiv = document.createElement('div');
-        guideInfoDiv.classList.add('guide-info');
-        guideInfoDiv.innerHTML = `
-          <h2>${guide.guide_name}</h2>
-          <img src="${guide.guide_photo}" alt="Guide Photo">
-          <p>${guide.guide_description}</p>
-          <p>${guide.guide_location}</p>
-          <p>${guide.guide_whatsapp_number}</p>
-        `;
+      // Função para fazer a solicitação e manipular a resposta
+      function fetchGuideInfo() {
+        fetch('https://reciturbackend.onrender.com/')
+          .then(response => response.json())
+          .then(data => {
+            // Manipule os dados recebidos aqui
+            const guideInfoElement = document.getElementById('guide-info');
+            guideInfoElement.innerHTML = JSON.stringify(data);
+          })
+          .catch(error => {
+            console.error('Erro ao obter os dados:', error);
+          });
+      }
 
-        guideInfoContainer.appendChild(guideInfoDiv);
-      });
-    })
-    .catch(error => {
-      console.error('Erro ao obter os dados:', error);
-    });
-}
-
+      // Chame a função para buscar os dados quando a página for carregada
+      document.addEventListener('DOMContentLoaded', fetchGuideInfo);
     </script>
   </body>
 </html>
