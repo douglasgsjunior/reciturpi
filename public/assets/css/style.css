@@ -601,3 +601,10 @@
 .navbar-button.active svg {
   fill: rgb(0, 0, 0);
 }
+
+#guide-info {
+  background-color: rgb(223, 223, 223);
+  color: rgb(0, 0, 0);
+  height: 40vh;
+  width: 40vw;
+}
