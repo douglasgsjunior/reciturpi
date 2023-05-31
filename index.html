@@ -105,6 +105,7 @@
           <div id="null4"></div>
         </div>
         <div id="null3"></div>
+        <div id="guide-container"></div>
 			</div>
 			<div class="page" id="page4"><!--settings-->
         <div id="header">
@@ -169,5 +170,57 @@
     <script src="public/assets/js/map.js"></script>
     <script src="public/assets/js/points.js"></script>
     <script src="public/assets/js/guide.js"></script>
+    <script>
+      // Função para fazer a requisição AJAX e exibir os dados na página
+      function fetchGuideData() {
+        // Fazer a requisição AJAX para obter os dados do backend
+        fetch('/')
+          .then(response => response.json())
+          .then(data => {
+            // Manipular o DOM para exibir as informações na página
+            const guideContainer = document.getElementById('guide-container');
+    
+            // Limpar o conteúdo atual do container de guias
+            guideContainer.innerHTML = '';
+    
+            // Iterar sobre os dados obtidos e criar elementos HTML para cada guia
+            data.forEach(guide => {
+              const guideElement = document.createElement('div');
+              guideElement.classList.add('guide');
+    
+              // Criar os elementos HTML para exibir as informações do guia
+              const guideName = document.createElement('h2');
+              guideName.textContent = guide.guide_name;
+    
+              const guidePhoto = document.createElement('img');
+              guidePhoto.src = guide.guide_photo;
+    
+              const guideDescription = document.createElement('p');
+              guideDescription.textContent = guide.guide_description;
+    
+              const guideLocation = document.createElement('p');
+              guideLocation.textContent = guide.guide_location;
+    
+              const guideWhatsApp = document.createElement('p');
+              guideWhatsApp.textContent = guide.guide_whatsapp_number;
+    
+              // Adicionar os elementos criados ao container de guias
+              guideElement.appendChild(guideName);
+              guideElement.appendChild(guidePhoto);
+              guideElement.appendChild(guideDescription);
+              guideElement.appendChild(guideLocation);
+              guideElement.appendChild(guideWhatsApp);
+    
+              guideContainer.appendChild(guideElement);
+            });
+          })
+          .catch(error => {
+            console.error('Erro ao obter os dados do backend:', error);
+          });
+      }
+    
+      // Chamar a função para obter os dados e exibi-los quando a página carregar
+      window.addEventListener('load', fetchGuideData);
+    </script>    
   </body>
 </html>
